@@ -35,13 +35,7 @@ Designed to mitigate Harvest-Now-Decrypt-Later (HNDL) threats in next-generation
 ---
 
 ## System Architecture
-
-
-## OAI-CU → strongSwan → OQS/OpenSSL → liboqs
-## │ │
-## └────────── IPsec Tunnel ───────────────┘
-## │ │
-## OAI-DU → strongSwan → OQS/OpenSSL → liboqs
+<img width="500" height="424" alt="image" src="https://github.com/user-attachments/assets/4a442ea4-3b86-437c-a645-171a15101581" />
 
 
 
