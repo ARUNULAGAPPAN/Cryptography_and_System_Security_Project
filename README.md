@@ -37,11 +37,12 @@ Designed to mitigate Harvest-Now-Decrypt-Later (HNDL) threats in next-generation
 ## System Architecture
 
 
-OAI-CU → strongSwan → OQS/OpenSSL → liboqs
-│ │
-└────────── IPsec Tunnel ───────────────┘
-│ │
-OAI-DU → strongSwan → OQS/OpenSSL → liboqs
+## OAI-CU → strongSwan → OQS/OpenSSL → liboqs
+## │ │
+## └────────── IPsec Tunnel ───────────────┘
+## │ │
+## OAI-DU → strongSwan → OQS/OpenSSL → liboqs
+
 
 
 - Communication occurs over a Docker bridge network  
