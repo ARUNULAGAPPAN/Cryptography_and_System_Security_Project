@@ -1,6 +1,5 @@
 # Cryptography_and_System_Security_Project
 
-
 # Hybrid Post-Quantum Secure F1AP Framework for O-RAN (5G)
 
 ## Overview
@@ -34,6 +33,15 @@ Designed to mitigate Harvest-Now-Decrypt-Later (HNDL) threats in next-generation
   - OpenAirInterface + strongSwan + liboqs  
 
 ---
+
+## System Architecture
+
+
+OAI-CU → strongSwan → OQS/OpenSSL → liboqs
+│ │
+└────────── IPsec Tunnel ───────────────┘
+│ │
+OAI-DU → strongSwan → OQS/OpenSSL → liboqs
 
 
 - Communication occurs over a Docker bridge network  
@@ -71,9 +79,7 @@ Designed to mitigate Harvest-Now-Decrypt-Later (HNDL) threats in next-generation
 git clone https://github.com/your-repo/pqc-f1ap.git
 cd pqc-f1ap
 docker-compose up -d
-
 Establish Secure Tunnel
-
 docker exec -d oai-cu-pqc /usr/libexec/ipsec/charon
 docker exec -d oai-du-pqc /usr/libexec/ipsec/charon
 
@@ -81,17 +87,15 @@ docker exec -it oai-cu-pqc swanctl --load-all
 docker exec -it oai-du-pqc swanctl --load-all
 
 docker exec -it oai-cu-pqc swanctl --initiate --child f1-c
-
 Verify Connection
 docker exec -it oai-cu-pqc swanctl --list-sas
 
-Expected:
+Expected output:
 
 IKE_SA f1-pqc
 CHILD_SA f1-c
 Test Communication
 docker exec -it oai-cu-pqc ping 192.168.10.20
-
 Results
 Metric	Classical	PQC Hybrid
 Handshake Latency	42 ms	54 ms
@@ -153,5 +157,3 @@ Inspired by NIST PQC standards and O-RAN Alliance architecture.
 Final Note
 
 This repository bridges the gap between theoretical PQC research and practical telecom deployment, enabling quantum-resilient 5G infrastructure.
-
-## System Architecture
